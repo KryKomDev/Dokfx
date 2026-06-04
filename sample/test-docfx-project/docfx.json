@@ -4,7 +4,7 @@
     {
       "src": [
         {
-          "src": "../src",
+          "src": "../MyLibrary",
           "files": [
             "**/*.csproj"
           ]
@@ -36,7 +36,7 @@
     "template": [
       "default",
       "modern",
-      "../custom-template"
+      "../../src/dokfx"
     ],
     "globalMetadata": {
       "_appName": "",

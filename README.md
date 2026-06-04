@@ -35,18 +35,19 @@ The template uses DocFX's **stacked template system**, meaning you only need to 
 
 ### 1. Structure
 
-Place the `custom-template` folder inside your DocFX project (or at the root of your repository):
+Place the `dokfx` folder inside your DocFX project (or at the root of your repository):
 
 ```text
 my-docfx-project/
 ├── docfx.json
-├── custom-template/
-│   ├── public/
-│   │   └── main.css
-│   └── partials/
-│       ├── class.header.tmpl.partial
-│       ├── class.memberpage.tmpl.partial
-│       └── namespace.tmpl.partial
+├── src/
+│   └── dokfx/
+│       ├── public/
+│       │   └── main.css
+│       └── partials/
+│           ├── class.header.tmpl.partial
+│           ├── class.memberpage.tmpl.partial
+│           └── namespace.tmpl.partial
 ```
 
 ### 2. Configure `docfx.json`
@@ -59,14 +60,14 @@ Open your `docfx.json` file and locate the `"build"` block. In the `"template"` 
     "template": [
       "default",
       "modern",
-      "custom-template"
+      "src/dokfx"
     ]
   }
 }
 ```
 
 > [!NOTE]
-> Make sure the path specified in the `"template"` array is relative to the directory containing your `docfx.json` file. For example, if your template is inside a subfolder, use `custom-template` or `path/to/custom-template`.
+> Make sure the path specified in the `"template"` array is relative to the directory containing your `docfx.json` file. For example, if your template is inside a subfolder, use `src/dokfx` or the relative path to it (e.g., `../../src/dokfx`).
 
 ### 3. Generate Separate Member Pages (Optional but Recommended)
 
