@@ -41,6 +41,8 @@
     "globalMetadata": {
       "_appName": "",
       "_appTitle": "",
+      "_appLogoPath": "images/icon.png",
+      "_appFaviconPath": "images/icon.png",
       "_enableSearch": true,
       "pdf": false
     }
