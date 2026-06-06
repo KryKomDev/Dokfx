@@ -82,6 +82,32 @@
 
   --code-bg: var(--md-surface-container-high);
   --code-color: var(--md-on-surface);
+
+  /* Syntax Highlighting Variables - Light Theme */
+  --hljs-comment: #656d78;
+  --hljs-keyword: #4f5bbf;
+  --hljs-string: #16a34a;
+  --hljs-number: #d97706;
+  --hljs-title: #2563eb;
+  --hljs-type: #7c3aed;
+  --hljs-built_in: #0891b2;
+  --hljs-literal: #db2777;
+  --hljs-attribute: #b45309;
+  --hljs-variable: #0f766e;
+  --hljs-meta: #475569;
+  --hljs-tag: #e11d48;
+  --hljs-attr: #ea580c;
+  --hljs-symbol: #2563eb;
+  --hljs-bullet: #16a34a;
+
+  /* Callout colors - Light Theme */
+  --callout-bg: rgb(255 255 255);
+  --callout-color: var(--md-on-surface);
+  --callout-note-color: var(--md-primary);
+  --callout-tip-color: #2e7d32;
+  --callout-important-color: #7b1fa2;
+  --callout-warning-color: #b78103;
+  --callout-caution-color: #d32f2f;
 }
 
 /* DARK MODE - MATERIAL DESIGN 3 */
@@ -141,6 +167,32 @@
 
   --code-bg: var(--md-surface-container-high);
   --code-color: var(--md-on-surface);
+
+  /* Syntax Highlighting Variables - Dark Theme */
+  --hljs-comment: #8e95a5;
+  --hljs-keyword: #a5b4fc;
+  --hljs-string: #34d399;
+  --hljs-number: #fbbf24;
+  --hljs-title: #60a5fa;
+  --hljs-type: #c084fc;
+  --hljs-built_in: #22d3ee;
+  --hljs-literal: #f472b6;
+  --hljs-attribute: #fb7185;
+  --hljs-variable: #2dd4bf;
+  --hljs-meta: #9ca3af;
+  --hljs-tag: #fb7185;
+  --hljs-attr: #f472b6;
+  --hljs-symbol: #60a5fa;
+  --hljs-bullet: #34d399;
+
+  /* Callout colors - Dark Theme */
+  --callout-bg: #0e0e11;
+  --callout-color: #e3e3e6;
+  --callout-note-color: var(--md-primary);
+  --callout-tip-color: #81c784;
+  --callout-important-color: #ba68c8;
+  --callout-warning-color: #ffb74d;
+  --callout-caution-color: #e57373;
 }
 
 /* GLOBAL RESET & BASE UX STYLE */
@@ -792,6 +844,7 @@ article pre code {
     "Google Sans Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
     monospace;
   font-size: 0.9rem;
+  line-height: 1.5;
   color: var(--md-on-surface) !important;
   background-color: transparent !important;
   padding: 0 !important;
@@ -811,6 +864,97 @@ code:not(pre code) {
   font-family:
     "Google Sans Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
     monospace;
+}
+
+/* SYNTAX HIGHLIGHTING CUSTOM THEME (hljs) */
+pre code.hljs,
+code.hljs {
+  background-color: transparent !important;
+  color: var(--md-on-surface) !important;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--hljs-comment) !important;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-section {
+  color: var(--hljs-keyword) !important;
+  font-weight: 600;
+}
+
+.hljs-string,
+.hljs-template-tag,
+.hljs-template-variable,
+.hljs-addition {
+  color: var(--hljs-string) !important;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-symbol,
+.hljs-bullet {
+  color: var(--hljs-number) !important;
+}
+
+.hljs-title,
+.hljs-section {
+  color: var(--hljs-title) !important;
+}
+
+.hljs-type,
+.hljs-class,
+.hljs-built_in {
+  color: var(--hljs-type) !important;
+}
+
+.hljs-variable,
+.hljs-template-variable {
+  color: var(--hljs-variable) !important;
+}
+
+.hljs-attribute {
+  color: var(--hljs-attribute) !important;
+}
+
+.hljs-attr {
+  color: var(--hljs-attr) !important;
+}
+
+.hljs-meta,
+.hljs-meta .hljs-keyword {
+  color: var(--hljs-meta) !important;
+}
+
+.hljs-tag {
+  color: var(--hljs-tag) !important;
+}
+
+.hljs-doctag {
+  color: var(--hljs-comment) !important;
+  font-weight: bold;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  color: var(--md-on-error-container) !important;
+  background-color: var(--md-error-container) !important;
+}
+
+.hljs-addition {
+  color: var(--md-on-primary-container) !important;
+  background-color: var(--md-primary-container) !important;
 }
 
 /* FACTS METADATA GRID CONTAINER */
@@ -972,8 +1116,8 @@ dl.parameters dd:last-child {
   border-radius: var(--md-shape-corner-medium) !important;
   padding: 1.25rem !important;
   margin-bottom: 1.5rem !important;
-  background-color: #0e0e11 !important;
-  color: #e3e3e6 !important; /* light text for readability on dark background */
+  background-color: var(--callout-bg) !important;
+  color: var(--callout-color) !important;
   box-shadow: var(--md-elevation-1);
 }
 .alert a {
@@ -984,15 +1128,15 @@ dl.parameters dd:last-child {
 /* NOTE (Blue) */
 .alert-info,
 .NOTE {
-  border: 1.5px solid var(--md-primary) !important;
+  border: 1.5px solid var(--callout-note-color) !important;
 }
 .alert-info h5,
 .NOTE h5 {
-  color: var(--md-primary) !important;
+  color: var(--callout-note-color) !important;
 }
 .alert-info a,
 .NOTE a {
-  color: var(--md-primary) !important;
+  color: var(--callout-note-color) !important;
 }
 .NOTE h5::before {
   content: "\f430" !important;
@@ -1001,15 +1145,15 @@ dl.parameters dd:last-child {
 /* TIP (Green) */
 .alert-success,
 .TIP {
-  border: 1.5px solid #81c784 !important;
+  border: 1.5px solid var(--callout-tip-color) !important;
 }
 .alert-success h5,
 .TIP h5 {
-  color: #81c784 !important;
+  color: var(--callout-tip-color) !important;
 }
 .alert-success a,
 .TIP a {
-  color: #81c784 !important;
+  color: var(--callout-tip-color) !important;
 }
 .TIP h5::before {
   content: "\f468" !important;
@@ -1019,15 +1163,15 @@ dl.parameters dd:last-child {
 .IMPORTANT,
 .IMPORTANT.alert,
 .IMPORTANT.alert-danger {
-  border: 1.5px solid #ba68c8 !important;
+  border: 1.5px solid var(--callout-important-color) !important;
 }
 .IMPORTANT h5,
 .IMPORTANT.alert h5 {
-  color: #ba68c8 !important;
+  color: var(--callout-important-color) !important;
 }
 .IMPORTANT a,
 .IMPORTANT.alert a {
-  color: #ba68c8 !important;
+  color: var(--callout-important-color) !important;
 }
 .IMPORTANT h5::before {
   content: "\f332" !important;
@@ -1036,15 +1180,15 @@ dl.parameters dd:last-child {
 /* WARNING (Yellow / Orange) */
 .alert-warning,
 .WARNING {
-  border: 1.5px solid #bc6b08 !important;
+  border: 1.5px solid var(--callout-warning-color) !important;
 }
 .alert-warning h5,
 .WARNING h5 {
-  color: #ffb74d !important; /* warm bright gold for text readability */
+  color: var(--callout-warning-color) !important;
 }
 .alert-warning a,
 .WARNING a {
-  color: #ffb74d !important;
+  color: var(--callout-warning-color) !important;
 }
 .WARNING h5::before {
   content: "\f33a" !important;
@@ -1053,16 +1197,16 @@ dl.parameters dd:last-child {
 /* CAUTION (Red) */
 .alert-danger:not(.IMPORTANT),
 .CAUTION {
-  border: 1.5px solid #e57373 !important;
+  border: 1.5px solid var(--callout-caution-color) !important;
 }
 .alert-danger:not(.IMPORTANT) h5,
 .CAUTION h5 {
-  color: #e57373 !important;
+  color: var(--callout-caution-color) !important;
 }
 .CAUTION a,
 .CAUTION.alert a,
 .alert-danger:not(.IMPORTANT) a {
-  color: #e57373 !important;
+  color: var(--callout-caution-color) !important;
 }
 .CAUTION h5::before {
   content: "\f626" !important;
@@ -1324,3 +1468,27 @@ footer a:hover {
   color: var(--md-on-primary);
   border-color: var(--md-primary);
 }
+
+/* GITHUB NAVBAR LINK STYLE */
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: var(--md-on-surface-variant) !important;
+  background-color: transparent;
+  transition: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+  text-decoration: none !important;
+  font-size: 1.25rem;
+  margin-right: 0.25rem;
+}
+.github-link:hover {
+  background-color: rgba(var(--md-primary-rgb), 0.08);
+  color: var(--md-primary) !important;
+}
+.github-link:active {
+  transform: scale(0.92);
+}
+

@@ -39,8 +39,9 @@
       "../../src/dokfx"
     ],
     "globalMetadata": {
-      "_appName": "",
-      "_appTitle": "",
+      "_appName": "Dokfx",
+      "_appTitle": "Dokfx Theme",
+      "_gitRepo": "https://github.com/KryKomDev/Dokfx",
       "_appLogoPath": "images/icon.png",
       "_appFaviconPath": "images/icon.png",
       "_enableSearch": true,

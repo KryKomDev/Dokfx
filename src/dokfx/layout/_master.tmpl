@@ -45,6 +45,22 @@
         document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
       </script>
 
+      <script>
+        // Move GitHub link next to the theme toggle inside the dynamically created form.icons
+        document.addEventListener('DOMContentLoaded', () => {
+          const checkExist = setInterval(() => {
+            const iconsForm = document.querySelector('form.icons');
+            const githubLink = document.querySelector('.github-link');
+            if (iconsForm && githubLink) {
+              iconsForm.prepend(githubLink);
+              clearInterval(checkExist);
+            }
+          }, 50);
+          // Safety timeout to prevent infinite polling
+          setTimeout(() => clearInterval(checkExist), 5000);
+        });
+      </script>
+
       {{#_googleAnalyticsTagId}}
       <script async src="https://www.googletagmanager.com/gtag/js?id={{_googleAnalyticsTagId}}"></script>
       <script>
@@ -78,6 +94,11 @@
                 <input class="form-control" id="search-query" type="search" disabled placeholder="{{__global.search}}" autocomplete="off" aria-label="Search">
               </form>
               {{/_enableSearch}}
+              {{#_gitRepo}}
+              <a href="{{_gitRepo}}" class="github-link" target="_blank" rel="noopener noreferrer" title="GitHub Repository">
+                <i class="bi bi-github"></i>
+              </a>
+              {{/_gitRepo}}
             </div>
           </div>
         </div>
