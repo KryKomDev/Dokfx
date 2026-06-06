@@ -23,3 +23,6 @@ obj/
 # OS-specific files
 .DS_Store
 Thumbs.db
+
+# Exported templates
+_exported_templates/
