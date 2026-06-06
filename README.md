@@ -2,8 +2,8 @@
 
 # Dokfx Template
 
-![GitHub Release](https://img.shields.io/github/v/release/KryKomDev/Dokfx?sort=semver&style=for-the-badge)
-![GitHub License](https://img.shields.io/github/license/KryKomDev/Dokfx?style=for-the-badge)
+![GitHub Release](https://img.shields.io/github/v/release/KryKomDev/Dokfx?include_prereleases&sort=semver&style=for-the-badge&labelColor=0e0e11&color=ba68c8)
+![GitHub License](https://img.shields.io/github/license/KryKomDev/Dokfx?style=for-the-badge&labelColor=0e0e11&color=bec2ff)
 
 </div>
 
