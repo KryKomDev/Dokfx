@@ -260,6 +260,13 @@ header {
   background-color: transparent !important;
   padding: 0.75rem 0;
 }
+.navbar .navbar-toggler {
+  border: none !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  outline: none !important;
+}
 .navbar-brand {
   display: flex;
   align-items: center;
@@ -522,8 +529,16 @@ form.search input.form-control::placeholder {
   flex-wrap: wrap !important;
   align-items: center !important;
 }
+.toc li.expander {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) !important;
+  align-items: center !important;
+}
 .toc li > ul {
   width: 100% !important;
+}
+.toc li.expander > ul {
+  grid-column: 1 / span 2 !important;
 }
 .toc a {
   display: flex !important;
@@ -535,6 +550,8 @@ form.search input.form-control::placeholder {
   font-weight: 500;
   font-size: 0.925rem;
   flex-grow: 1 !important;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .toc li:not(.expander) > a {
   padding-left: 2.25rem !important;
