@@ -180,6 +180,86 @@
           }, 50);
           // Safety timeout to prevent infinite polling
           setTimeout(() => clearInterval(checkExist), 5000);
+
+          // Customize Callout headings if defined in metadata
+          {{#_calloutNoteHeading}}
+          document.querySelectorAll('.NOTE h5, .alert-info h5').forEach(h => {
+            h.childNodes.forEach(n => { if (n.nodeType === Node.TEXT_NODE) n.textContent = '{{_calloutNoteHeading}}'; });
+          });
+          {{/_calloutNoteHeading}}
+
+          {{#_calloutTipHeading}}
+          document.querySelectorAll('.TIP h5, .alert-success h5').forEach(h => {
+            h.childNodes.forEach(n => { if (n.nodeType === Node.TEXT_NODE) n.textContent = '{{_calloutTipHeading}}'; });
+          });
+          {{/_calloutTipHeading}}
+
+          {{#_calloutImportantHeading}}
+          document.querySelectorAll('.IMPORTANT h5, .IMPORTANT.alert h5').forEach(h => {
+            h.childNodes.forEach(n => { if (n.nodeType === Node.TEXT_NODE) n.textContent = '{{_calloutImportantHeading}}'; });
+          });
+          {{/_calloutImportantHeading}}
+
+          {{#_calloutWarningHeading}}
+          document.querySelectorAll('.WARNING h5, .alert-warning h5').forEach(h => {
+            h.childNodes.forEach(n => { if (n.nodeType === Node.TEXT_NODE) n.textContent = '{{_calloutWarningHeading}}'; });
+          });
+          {{/_calloutWarningHeading}}
+          {{#_calloutCautionHeading}}
+          document.querySelectorAll('.CAUTION h5, .alert-danger:not(.IMPORTANT) h5').forEach(h => {
+            h.childNodes.forEach(n => { if (n.nodeType === Node.TEXT_NODE) n.textContent = '{{_calloutCautionHeading}}'; });
+          });
+          {{/_calloutCautionHeading}}
+
+          // Custom Callout rendering
+          const customCallouts = [];
+          {{#_customCallouts}}
+          customCallouts.push({
+            name: '{{name}}',
+            heading: '{{heading}}',
+            color: '{{color}}',
+            icon: '{{icon}}'
+          });
+          {{/_customCallouts}}
+
+          customCallouts.forEach(callout => {
+            const { name, heading, color, icon } = callout;
+            if (!name) return;
+
+            // 1. Inject custom styles
+            const style = document.createElement('style');
+            style.innerHTML = `
+              .${name}, .alert-${name} {
+                border: 1.5px solid ${color} !important;
+              }
+              .${name} h5, .alert-${name} h5 {
+                color: ${color} !important;
+                display: flex !important;
+                align-items: center !important;
+              }
+              .${name} a, .alert-${name} a {
+                color: ${color} !important;
+              }
+              .${name} h5::before, .alert-${name} h5::before {
+                font-family: 'Material Symbols Outlined' !important;
+                content: '${icon}' !important;
+                font-size: 20px !important;
+                margin-right: 0.5rem !important;
+                transform: translateY(-3px) !important;
+                font-weight: normal !important;
+                font-style: normal !important;
+                text-transform: none !important;
+                line-height: 1 !important;
+                display: inline-block !important;
+              }
+            `;
+            document.head.appendChild(style);
+
+            // 2. Rename custom headings
+            document.querySelectorAll('.' + name + ' h5, .alert-' + name + ' h5').forEach(h => {
+              h.childNodes.forEach(n => { if (n.nodeType === Node.TEXT_NODE) n.textContent = heading; });
+            });
+          });
         });
       </script>
 

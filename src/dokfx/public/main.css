@@ -752,7 +752,7 @@ form.search input.form-control::placeholder {
 .affix a:hover {
   color: var(--md-primary) !important;
   background-color: rgba(var(--md-primary-rgb), 0.04);
-  border-radius: 0 var(--md-shape-corner-small) var(--md-shape-corner-small) 0;
+  border-radius: var(--md-shape-corner-small);
 }
 
 .affix li.active>a {
@@ -760,7 +760,20 @@ form.search input.form-control::placeholder {
   font-weight: 600;
   border-left-color: var(--md-primary);
   background-color: rgba(var(--md-primary-rgb), 0.08);
-  border-radius: 0 var(--md-shape-corner-small) var(--md-shape-corner-small) 0;
+  border-radius: var(--md-shape-corner-small);
+}
+
+/* LEVEL DIFFERENTIATION IN ARTICLE TOC */
+.affix a.link-body-emphasis {
+  font-weight: 500;
+  color: var(--md-on-surface) !important;
+}
+
+.affix a.link-secondary {
+  margin-left: 1rem;
+  font-size: 0.8rem;
+  color: var(--md-on-surface-variant) !important;
+  opacity: 0.85;
 }
 
 /* TYPOGRAPHY AND CONTENT STYLING */
@@ -1254,6 +1267,24 @@ dl.parameters dd:last-child {
   background-color: var(--callout-bg) !important;
   color: var(--callout-color) !important;
   box-shadow: var(--md-elevation-1);
+}
+
+.alert h5,
+.NOTE h5,
+.TIP h5,
+.IMPORTANT h5,
+.WARNING h5,
+.CAUTION h5 {
+  margin-top: 0 !important;
+}
+
+.alert *:last-child,
+.NOTE *:last-child,
+.TIP *:last-child,
+.IMPORTANT *:last-child,
+.WARNING *:last-child,
+.CAUTION *:last-child {
+  margin-bottom: 0 !important;
 }
 
 .alert a {

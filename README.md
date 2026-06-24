@@ -44,6 +44,46 @@ You can customize the accent color used across the theme by defining the `_accen
 
 The template dynamically resolves the color, automatically calculating secondary/container surfaces and dark-mode equivalents.
 
+You can also customize the heading text of predefined callout/alert blocks (Note, Tip, Important, Warning, Caution):
+
+```json
+{
+  "build": {
+    "globalMetadata": {
+      "_calloutNoteHeading": "Did you know?",
+      "_calloutTipHeading": "Pro Tip",
+      "_calloutImportantHeading": "Crucial",
+      "_calloutWarningHeading": "Attention",
+      "_calloutCautionHeading": "Danger"
+    }
+  }
+}
+```
+
+And define entirely custom callout blocks with customizable color and icons (Material Symbols Outlined):
+
+```json
+{
+  "build": {
+    "markdownEngineProperties": {
+      "alerts": {
+        "todo": "alert alert-todo todo"
+      }
+    },
+    "globalMetadata": {
+      "_customCallouts": [
+        {
+          "name": "todo",
+          "heading": "Things to Do",
+          "color": "#e91e63",
+          "icon": "checklist"
+        }
+      ]
+    }
+  }
+}
+```
+
 ## Repository Documentation
 
 For more detailed information, please refer to the following documentation files in this repository:

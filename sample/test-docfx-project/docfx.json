@@ -38,11 +38,26 @@
       "modern",
       "../../src/dokfx"
     ],
+    "markdownEngineProperties": {
+      "alerts": {
+        "todo": "alert alert-todo todo"
+      }
+    },
     "globalMetadata": {
       "_appName": "Dokfx",
       "_appTitle": "Dokfx Theme",
       "_gitRepo": "https://github.com/KryKomDev/Dokfx",
       "_accentColor": "#9800f8",
+      "_calloutNoteHeading": "Did you know?",
+      "_calloutTipHeading": "Pro Tip",
+      "_customCallouts": [
+        {
+          "name": "todo",
+          "heading": "Things to Do",
+          "color": "#908ca1",
+          "icon": "checklist"
+        }
+      ],
       "_appLogoPath": "images/Gen17.png",
       "_appFaviconPath": "images/Gen17.png",
       "_enableSearch": true,

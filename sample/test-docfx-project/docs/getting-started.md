@@ -80,6 +80,7 @@ To take full advantage of the responsive API tables provided by this template, c
 ```
 
 ### Step 3: Customize the Accent Color (Optional)
+
 You can customize the accent color used across the theme by setting `_accentColor` in `globalMetadata`. The template dynamically parses the color and calculates the full Material Design 3 palette (including container backgrounds, text contrast, and dark-mode desaturated equivalents):
 
 ```json
@@ -93,6 +94,68 @@ You can customize the accent color used across the theme by setting `_accentColo
 ```
 
 You can specify the color as a hex code (e.g. `#e91e63`), standard rgb `rgb(...)`, or CSS color names (e.g. `royalblue`).
+
+### Step 4: Customize Callout Headings (Optional)
+
+You can customize the heading text of the predefined callout blocks (Note, Tip, Important, Warning, Caution) by defining metadata properties inside `globalMetadata` in `docfx.json`:
+
+```json
+{
+  "build": {
+    "globalMetadata": {
+      "_calloutNoteHeading": "Did you know?",
+      "_calloutTipHeading": "Pro Tip",
+      "_calloutImportantHeading": "Crucial",
+      "_calloutWarningHeading": "Attention",
+      "_calloutCautionHeading": "Danger"
+    }
+  }
+}
+```
+
+### Step 5: Add Custom Callout Blocks (Optional)
+
+You can define entirely new, custom callout blocks by mapping the block keyword to CSS classes in `markdownEngineProperties.alerts`, and then styling it via `globalMetadata._customCallouts`:
+
+1. Map the custom alert keyword inside `docfx.json`:
+
+```json
+{
+  "build": {
+    "markdownEngineProperties": {
+      "alerts": {
+        "todo": "alert alert-todo todo"
+      }
+    }
+  }
+}
+```
+
+2. Configure style properties under `globalMetadata._customCallouts` in `docfx.json`:
+
+```json
+{
+  "build": {
+    "globalMetadata": {
+      "_customCallouts": [
+        {
+          "name": "todo",
+          "heading": "Things to Do",
+          "color": "#e91e63",
+          "icon": "checklist"
+        }
+      ]
+    }
+  }
+}
+```
+
+Properties:
+
+* **`name`**: The CSS class name mapped in step 1 (e.g. `todo`).
+* **`heading`**: The heading title text to display on the callout.
+* **`color`**: The border, heading, and link accent color.
+* **`icon`**: The Google Material Symbols name for the callout icon.
 
 ---
 

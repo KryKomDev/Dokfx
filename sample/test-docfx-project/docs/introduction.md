@@ -79,6 +79,78 @@ DocFX supports GitHub-flavored markdown alerts to emphasize critical information
 > [!CAUTION]
 > This is a **Caution** callout. Use for high-risk actions that could cause data loss, build failures, or security issues.
 
+> [!TODO]
+> This is a custom alert/callout block configured dynamically under `markdownEngineProperties.alerts` and `_customCallouts` metadata!
+
+### Callout Heading Customization
+
+You can customize the heading text of the predefined callouts inside the `docfx.json` configuration file.
+This site has edited `Note` and `Tip` callouts:
+
+```json
+{
+  "build": {
+    "globalMetadata": {
+      "_calloutNoteHeading": "Did you know?",
+      "_calloutTipHeading": "Pro Tip"
+    }
+  }
+}
+```
+
+You can customize the other blocks too:
+
+```json
+{
+  "build": {
+    "globalMetadata": {
+      "_calloutNoteHeading": "Note heading",
+      "_calloutTipHeading": "Tip heading",
+      "_calloutImportantHeading": "Important heading",
+      "_calloutWarningHeading": "Warning heading",
+      "_calloutCautionHeading": "Caution heading"
+    }
+  }
+}
+```
+
+### Adding Custom Callouts
+
+You can define entirely new, custom callout blocks by mapping the block keyword to CSS classes in `markdownEngineProperties.alerts`, and then styling it via `globalMetadata._customCallouts`:
+
+1. Map the custom alert keyword inside `docfx.json`:
+
+```json
+{
+  "build": {
+    "markdownEngineProperties": {
+      "alerts": {
+        "todo": "alert alert-todo todo"
+      }
+    }
+  }
+}
+```
+
+2. Configure style properties under `globalMetadata._customCallouts` in `docfx.json`:
+
+```json
+{
+  "build": {
+    "globalMetadata": {
+      "_customCallouts": [
+        {
+          "name": "todo",
+          "heading": "Things to Do",
+          "color": "#e91e63",
+          "icon": "checklist"
+        }
+      ]
+    }
+  }
+}
+```
+
 ---
 
 ## 4. Tables
