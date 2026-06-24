@@ -79,6 +79,21 @@ To take full advantage of the responsive API tables provided by this template, c
 }
 ```
 
+### Step 3: Customize the Accent Color (Optional)
+You can customize the accent color used across the theme by setting `_accentColor` in `globalMetadata`. The template dynamically parses the color and calculates the full Material Design 3 palette (including container backgrounds, text contrast, and dark-mode desaturated equivalents):
+
+```json
+{
+  "build": {
+    "globalMetadata": {
+      "_accentColor": "#e91e63"
+    }
+  }
+}
+```
+
+You can specify the color as a hex code (e.g. `#e91e63`), standard rgb `rgb(...)`, or CSS color names (e.g. `royalblue`).
+
 ---
 
 ## 4. Building and Running

@@ -15,6 +15,7 @@ Dokfx is a modern, Material Design 3 inspired DocFX template designed by KryKom.
 
 1. Copy the `src/dokfx` folder into your DocFX project (typically inside a `templates` directory, e.g., `templates/dokfx`).
 2. Register the template in your `docfx.json` file under the `build.template` property:
+
    ```json
    {
      "build": {
@@ -27,8 +28,25 @@ Dokfx is a modern, Material Design 3 inspired DocFX template designed by KryKom.
    }
    ```
 
+## Configuration
+
+You can customize the accent color used across the theme by defining the `_accentColor` property under the `globalMetadata` block in your `docfx.json`:
+
+```json
+{
+  "build": {
+    "globalMetadata": {
+      "_accentColor": "#e91e63"
+    }
+  }
+}
+```
+
+The template dynamically resolves the color, automatically calculating secondary/container surfaces and dark-mode equivalents.
+
 ## Repository Documentation
 
 For more detailed information, please refer to the following documentation files in this repository:
+
 * [Introduction](https://krykomdev.github.io/Dokfx/) - Overview of features, styling, and Material Design 3 theme adjustments.
 * [Getting Started Guide](https://krykomdev.github.io/KryKomDev/getting-started.html) - Full step-by-step setup guide and build instructions.

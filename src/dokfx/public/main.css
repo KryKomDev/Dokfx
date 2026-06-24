@@ -802,6 +802,30 @@ article h3 {
   margin-bottom: 0.75rem;
 }
 
+article h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--md-on-surface);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+article h5 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--md-on-surface);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+article h6 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--md-on-surface-variant);
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
 article h4.section {
   font-size: 1.05rem;
   font-weight: 600;
@@ -952,9 +976,9 @@ code:not(pre code) {
       var(--md-surface-container-highest) 50%,
       transparent) !important;
   color: var(--md-on-surface) !important;
-  padding: 0.2rem 0.4rem !important;
+  padding: 0.2em 0.4em !important;
   border-radius: 9999px !important;
-  font-size: 0.875rem !important;
+  font-size: 0.875em !important;
   font-family:
     "Google Sans Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
     monospace;
@@ -1629,4 +1653,12 @@ footer a:hover {
 
 .github-link:active {
   transform: scale(0.92);
+}
+
+/* THEME-SPECIFIC VISIBILITY UTILITIES */
+[data-bs-theme="light"] .dark-theme-only {
+  display: none !important;
+}
+[data-bs-theme="dark"] .light-theme-only {
+  display: none !important;
 }

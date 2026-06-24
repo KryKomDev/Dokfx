@@ -42,8 +42,9 @@
       "_appName": "Dokfx",
       "_appTitle": "Dokfx Theme",
       "_gitRepo": "https://github.com/KryKomDev/Dokfx",
-      "_appLogoPath": "images/icon.png",
-      "_appFaviconPath": "images/icon.png",
+      "_accentColor": "#9800f8",
+      "_appLogoPath": "images/Gen17.png",
+      "_appFaviconPath": "images/Gen17.png",
       "_enableSearch": true,
       "pdf": false
     }

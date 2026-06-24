@@ -8,41 +8,55 @@ Welcome to the **Dokfx Template Showcase**. This document serves as a comprehens
 
 Here is a quick demonstration of basic inline text formatting:
 
-*   **Bold text** using `**bold**` or `__bold__`
-*   *Italic text* using `*italic*` or `_italic_`
-*   ***Bold and Italic*** using `***bold & italic***`
-*   ~~Strikethrough text~~ using `~~strikethrough~~`
-*   `Inline Code Blocks` which are styled with fully rounded side borders and semi-transparent backgrounds to fit seamlessly into text lines.
+* **Bold text** using `**bold**` or `__bold__`
+* *Italic text* using `*italic*` or `_italic_`
+* ***Bold and Italic*** using `***bold & italic***`
+* ~~Strikethrough text~~ using `~~strikethrough~~`
+* `Inline Code Blocks` which are styled with fully rounded side borders and semi-transparent backgrounds to fit seamlessly into text lines.
 
 ### Subheadings Demo (H3)
+
 #### Level 4 Heading (H4)
+
 ##### Level 5 Heading (H5)
+
 ###### Level 6 Heading (H6)
+
+### Subheading with a `code block` (H3)
+
+#### Level 4 heading with a `code block` (H4)
+
+##### Level 5 heading with a `code block` (H5)
+
+###### Level 6 heading with a `code block` (H6)
 
 ---
 
 ## 2. Lists
 
 ### Unordered List
-*   Material Design 3 tokens and grids
-*   Bootstrap 5 layout foundations
-*   Custom template override system
-    *   Sub-item A with nested bullets
-    *   Sub-item B with nested bullets
-        *   Deeply nested bullet point
+
+* Material Design 3 tokens and grids
+* Bootstrap 5 layout foundations
+* Custom template override system
+  * Sub-item A with nested bullets
+  * Sub-item B with nested bullets
+    * Deeply nested bullet point
 
 ### Ordered List
-1.  Initialize your DocFX project.
-2.  Configure your `docfx.json` to include the `dokfx` template path.
-3.  Run the build command to generate files.
-    1.  Verify output in the `_site` directory.
-    2.  Check console logs for compilation issues.
+
+1. Initialize your DocFX project.
+2. Configure your `docfx.json` to include the `dokfx` template path.
+3. Run the build command to generate files.
+    1. Verify output in the `_site` directory.
+    2. Check console logs for compilation issues.
 
 ### Task List
-- [x] Create a custom template stacked on top of `modern`
-- [x] Replace definition lists with beautiful responsive tables
-- [ ] Add support for custom custom-styling search results page
-- [ ] Implement color themes customization
+
+* [x] Create a custom template stacked on top of `modern`
+* [x] Replace definition lists with beautiful responsive tables
+* [ ] Add support for custom custom-styling search results page
+* [ ] Implement color themes customization
 
 ---
 
@@ -83,11 +97,13 @@ Below is an auto-sized table styled with a Bootstrap striped and bordered design
 ## 5. Code Blocks
 
 ### Inline Code in Sentence
+
 To configure the template, append your custom template path inside the `"template"` array within your `docfx.json` configuration file, ensuring it is ordered after `"modern"`.
 
 ### Syntax Highlighted Code Blocks
 
 #### C# Example
+
 ```csharp
 using System;
 
@@ -108,6 +124,7 @@ namespace MyLibrary
 ```
 
 #### CSS Override Example
+
 ```css
 /* Custom CSS override for active links */
 .toc li.active > a {
@@ -133,5 +150,36 @@ namespace MyLibrary
 
 ## 7. Links and Images
 
-*   **External Link**: Learn more on the [Official DocFX Website](https://dotnet.github.io/docfx/).
-*   **Auto-Linked URL**: https://dotnet.github.io/docfx/
+### Links
+
+* **External Link**: Learn more on the [Official DocFX Website](https://dotnet.github.io/docfx/).
+* **Auto-Linked URL**: https://dotnet.github.io/docfx/
+
+### Images
+
+Below is a demonstration of how image assets are styled, sized down, and toggled responsively for light/dark themes in the template:
+
+#### 1. Standard Image (Auto-scaled)
+
+By default, images adapt to fill their parent container width.
+![Visual Graphic Asset](../images/KRYKOM-oneline-masked-b-test.png)
+
+#### 2. Sized-down Image (Max Width)
+
+You can size down images to a specific width using simple inline CSS or HTML styles. For instance, this logo is capped at `250px`:
+
+<img src="../images/Gen17.png" alt="Sized Down Logo" style="max-width: 250px; display: block;" />
+
+#### 3. Responsive Light / Dark Theme Showcase
+
+Using the template's custom theme-specific helper utility classes (`.light-theme-only` and `.dark-theme-only`), you can display different images depending on the user's selected color theme (light or dark):
+
+<div class="p-4 rounded-4 shadow-sm border mb-4 text-center" style="background-color: var(--md-surface-container-low); border-color: var(--md-outline-variant) !important;">
+  <p class="mb-3 text-muted small">The logo below changes color dynamically when you toggle the site theme:</p>
+  
+  <!-- Displays on Light Theme -->
+  <img src="../images/KRYKOM-oneline-masked-b.png" class="light-theme-only img-fluid" style="max-width: 300px; margin: 0 auto;" alt="KryKom Logo for Light Theme" />
+  
+  <!-- Displays on Dark Theme -->
+  <img src="../images/KRYKOM-oneline-masked-w.png" class="dark-theme-only img-fluid" style="max-width: 300px; margin: 0 auto;" alt="KryKom Logo for Dark Theme" />
+</div>
