@@ -260,6 +260,142 @@
               h.childNodes.forEach(n => { if (n.nodeType === Node.TEXT_NODE) n.textContent = heading; });
             });
           });
+
+          // Render Theme Responsive Images
+          (function() {
+            const article = document.querySelector('article');
+            if (!article) return;
+
+            const relMeta = document.querySelector('meta[name="docfx:rel"]');
+            const relPath = relMeta ? relMeta.getAttribute('content') : '';
+
+            // Find all anchor links inside the article
+            const links = Array.from(article.querySelectorAll('a'));
+            for (const link of links) {
+              const prevSibling = link.previousSibling;
+              const nextSibling = link.nextSibling;
+
+              // Check if previous sibling is a text node ending with '?'
+              if (!prevSibling || prevSibling.nodeType !== Node.TEXT_NODE) continue;
+              if (!prevSibling.textContent.endsWith('?')) continue;
+
+              // Check if next sibling is a text node
+              if (!nextSibling || nextSibling.nodeType !== Node.TEXT_NODE) continue;
+
+              const nextText = nextSibling.textContent;
+              const match = nextText.match(/^\s*\(([^)]+)\)/);
+              if (!match) continue;
+
+              const lightUrlRaw = link.getAttribute('href');
+              if (!lightUrlRaw) continue;
+
+              const darkUrlRaw = match[1];
+              const altText = link.textContent;
+
+              // Resolve ~/ urls
+              const resolveUrl = (url) => {
+                if (url.startsWith('~/')) {
+                  return relPath + url.substring(2);
+                }
+                return url;
+              };
+
+              const lightUrl = resolveUrl(lightUrlRaw);
+              const darkUrl = resolveUrl(darkUrlRaw);
+
+              // 1. Remove '?' from the end of the previous sibling
+              prevSibling.textContent = prevSibling.textContent.slice(0, -1);
+
+              // 2. Remove '(darkUrl)' from the beginning of the next sibling
+              nextSibling.textContent = nextText.substring(match[0].length);
+
+              // 3. Create the responsive image structure
+              const lightImg = document.createElement('img');
+              lightImg.src = lightUrl;
+              lightImg.alt = altText;
+              lightImg.className = 'theme-light-img';
+
+              const darkImg = document.createElement('img');
+              darkImg.src = darkUrl;
+              darkImg.alt = altText;
+              darkImg.className = 'theme-dark-img';
+
+              const container = document.createElement('span');
+              container.className = 'theme-responsive-image';
+              container.appendChild(lightImg);
+              container.appendChild(darkImg);
+
+              // Replace the link with the responsive image container
+              link.parentNode.insertBefore(container, link);
+              link.parentNode.removeChild(link);
+            }
+          })();
+
+          // Sizing attribute parser for images: ![alt](url){width=X height=Y}
+          (function() {
+            const article = document.querySelector('article');
+            if (!article) return;
+
+            const targets = Array.from(article.querySelectorAll('img:not(.theme-light-img):not(.theme-dark-img), .theme-responsive-image'));
+            for (const target of targets) {
+              let sibling = target.nextSibling;
+              if (!sibling && target.parentNode && target.parentNode.tagName === 'A') {
+                sibling = target.parentNode.nextSibling;
+              }
+
+              if (!sibling || sibling.nodeType !== Node.TEXT_NODE) continue;
+
+              const text = sibling.textContent;
+              const match = text.match(/^\s*\{([^}]+)\}/);
+              if (!match) continue;
+
+              const attrText = match[1];
+              const attrs = {};
+
+              // Parse key=value attributes
+              const pairRegex = /(\w+)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s,]+))/g;
+              let m;
+              while ((m = pairRegex.exec(attrText)) !== null) {
+                const key = m[1].toLowerCase();
+                const val = m[2] || m[3] || m[4];
+                attrs[key] = val;
+              }
+
+              // Fallback to colon syntax: width: 150px
+              const colonRegex = /(\w+)\s*:\s*([^;]+)/g;
+              if (Object.keys(attrs).length === 0) {
+                while ((m = colonRegex.exec(attrText)) !== null) {
+                  const key = m[1].toLowerCase().trim();
+                  const val = m[2].trim();
+                  attrs[key] = val;
+                }
+              }
+
+              if (Object.keys(attrs).length === 0) continue;
+
+              // Format helper
+              const formatDim = (val) => /^\d+$/.test(val) ? val + 'px' : val;
+
+              // Apply styles
+              if (attrs.width) {
+                const w = formatDim(attrs.width);
+                target.style.width = w;
+                if (target.classList.contains('theme-responsive-image')) {
+                  target.querySelectorAll('img').forEach(img => img.style.width = '100%');
+                }
+              }
+              if (attrs.height) {
+                const h = formatDim(attrs.height);
+                target.style.height = h;
+                if (target.classList.contains('theme-responsive-image')) {
+                  target.querySelectorAll('img').forEach(img => img.style.height = '100%');
+                }
+              }
+
+              // Remove the brace block from the text node
+              sibling.textContent = text.substring(match[0].length);
+            }
+          })();
         });
       </script>
 

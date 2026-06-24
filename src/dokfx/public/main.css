@@ -1693,3 +1693,22 @@ footer a:hover {
 [data-bs-theme="dark"] .light-theme-only {
   display: none !important;
 }
+
+/* Theme responsive images styles */
+.theme-responsive-image {
+  display: inline-block;
+  max-width: 100%;
+}
+.theme-responsive-image img {
+  max-width: 100%;
+  height: auto;
+}
+.theme-dark-img {
+  display: none !important;
+}
+[data-bs-theme="dark"] .theme-dark-img {
+  display: inline-block !important;
+}
+[data-bs-theme="dark"] .theme-light-img {
+  display: none !important;
+}
