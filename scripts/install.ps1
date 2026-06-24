@@ -20,7 +20,7 @@
 [CmdletBinding()]
 param (
     [Parameter(Position = 0)]
-    [string]$TargetDirectory = "../Docs/templates/dokfx",
+    [string]$TargetDirectory = "./docs/templates/dokfx",
 
     [Parameter()]
     [string]$Tag = "latest",

@@ -17,7 +17,7 @@ show_help() {
 }
 
 # Default parameter values
-TARGET_DIRECTORY="../Docs/templates/dokfx"
+TARGET_DIRECTORY="./Docs/templates/dokfx"
 REPO="KryKomDev/Dokfx"
 TAG="latest"
 SKIP_BACKUP=false
