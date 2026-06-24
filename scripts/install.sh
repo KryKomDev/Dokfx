@@ -50,7 +50,12 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Resolve target directory to absolute path
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+if [[ -n "${BASH_SOURCE[0]:-}" && -f "${BASH_SOURCE[0]}" ]]; then
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+else
+    SCRIPT_DIR="$PWD"
+fi
+
 if [[ "$TARGET_DIRECTORY" = /* ]]; then
     TARGET_DIR="$TARGET_DIRECTORY"
 else

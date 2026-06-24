@@ -62,7 +62,8 @@ if ($Help) {
 if ([System.IO.Path]::IsPathRooted($TargetDirectory)) {
     $TargetDir = $TargetDirectory
 } else {
-    $TargetDir = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot $TargetDirectory))
+    $RootPath = if ([string]::IsNullOrEmpty($PSScriptRoot)) { $PWD.Path } else { $PSScriptRoot }
+    $TargetDir = [System.IO.Path]::GetFullPath((Join-Path $RootPath $TargetDirectory))
 }
 
 # Determine API URL based on latest vs specific tag
