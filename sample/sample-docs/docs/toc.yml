@@ -1,0 +1,12 @@
+- name: Getting Started
+  href: getting-started.md
+- name: Markdown Showcase
+  href: introduction.md
+- name: Configuration & Features
+  items:
+    - name: Accent Color
+      href: accent-color.md
+    - name: Custom Callouts
+      href: custom-callouts.md
+    - name: Responsive Images
+      href: responsive-images.md
