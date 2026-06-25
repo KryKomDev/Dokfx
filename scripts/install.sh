@@ -9,7 +9,7 @@ show_help() {
     echo "  $(basename "$0") [options]"
     echo ""
     echo "Options:"
-    echo "  -t, --target PATH      Destination path for the Dokfx template (default: ../Docs/templates/dokfx)"
+    echo "  -d, --dir PATH         Destination path for the Dokfx template (default: ../Docs/templates/dokfx)"
     echo "  -g, --tag TAG          Specific release tag to download (default: latest)"
     echo "  -s, --skip-backup      Skip backup of the existing template directory"
     echo "  -h, --help             Show this help message"
@@ -25,7 +25,7 @@ SKIP_BACKUP=false
 # Option parsing
 while [[ $# -gt 0 ]]; do
     case $1 in
-        -t|--target)
+        -d|--dir)
             TARGET_DIRECTORY="$2"
             shift 2
             ;;

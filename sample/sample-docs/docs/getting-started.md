@@ -1,6 +1,8 @@
 # Getting Started
 
-Welcome to **Dokfx**! This custom DocFX template is built on top of the modern DocFX theme and brings beautiful **Material Design 3 (M3)** aesthetics, responsive layouts, unified alignment, and support for the **Google Sans Code** monospace typeface.
+Welcome to **Dokfx**! This custom DocFX template is built on top of the modern DocFX theme and brings
+beautiful **Material Design 3 (M3)** aesthetics, responsive layouts, unified alignment, and support for
+the **Google Sans Code** monospace typeface.
 
 ---
 
@@ -24,14 +26,32 @@ docfx --version
 
 You can run the install script directly from the web without downloading it:
 
-* **PowerShell (Windows)**:
-  ```powershell
-  irm https://krykomdev.github.io/Dokfx/install.ps1 | iex
-  ```
-* **Bash (Linux/macOS)**:
-  ```bash
-  curl -sSL https://krykomdev.github.io/Dokfx/install.sh | bash
-  ```
+# [PowerShell](#tab/pwsh)
+
+```powershell
+irm https://krykomdev.github.io/Dokfx/install.ps1 | iex; Install-Dokfx
+```
+
+To use the script with options, use the command below. It will print the available options.
+
+
+```powershell
+irm https://krykomdev.github.io/Dokfx/install.ps1 | iex; Install-Dokfx -h
+```
+
+# [Bash](#tab/bash)
+
+```bash
+bash <(curl -sSL https://krykomdev.github.io/Dokfx/install.sh)
+```
+
+To use the script with options, use the command below. It will print the available options.
+
+```bash
+bash <(curl -sSL https://krykomdev.github.io/Dokfx/install.sh) -h
+```
+
+---
 
 Alternatively, you can download the scripts and run them locally:
 
@@ -39,11 +59,13 @@ Alternatively, you can download the scripts and run them locally:
 * **Bash (Linux/macOS)**: [install.sh](../../../scripts/install.sh)
 
 For example, to run the downloaded PowerShell installer and configure your target `templates/dokfx` directory:
+
 ```powershell
-.\install.ps1 -TargetDirectory "templates/dokfx"
+.\install.ps1 -Dir "templates/dokfx"
 ```
 
 ### Manual Installation
+
 To manually install and use the template, copy the `dokfx` directory into your DocFX project root or add it as a git submodule:
 
 ```text
@@ -66,7 +88,9 @@ my-docfx-project/
 ## 3. Configuration
 
 ### Step 1: Register the Template in `docfx.json`
-Open your `docfx.json` configuration file and locate the `"build"` block. In the `"template"` array, append your custom template path **after** the default templates:
+
+Open your `docfx.json` configuration file and locate the `"build"` block. In the `"template"` array, append
+your custom template path **after** the default templates:
 
 ```json
 {
@@ -81,10 +105,13 @@ Open your `docfx.json` configuration file and locate the `"build"` block. In the
 ```
 
 > [!NOTE]
-> DocFX uses a stacked template system. The paths in `"template"` are layered sequentially, meaning `templates/dokfx` will override specific styles and templates from `modern` and `default` while inheriting everything else.
+> DocFX uses a stacked template system. The paths in `"template"` are layered sequentially, meaning
+`templates/dokfx` will override specific styles and templates from `modern` and `default` while inheriting everything else.
 
 ### Step 2: Configure Split API Layout (Recommended)
-To take full advantage of the responsive API tables provided by this template, configure your project to generate separate sub-pages for members by adding `"memberLayout": "separatePages"` under your `metadata` config:
+
+To take full advantage of the responsive API tables provided by this template, configure your project to
+generate separate sub-pages for members by adding `"memberLayout": "separatePages"` under your `metadata` config:
 
 ```json
 {
@@ -104,7 +131,9 @@ To take full advantage of the responsive API tables provided by this template, c
 ```
 
 ### Step 3: Customize Template Features
+
 You can configure and customize the special features of the Dokfx template by referring to the dedicated guides below:
+
 * **[Accent Color Customization](accent-color.md)**: Customize the color palette of the theme dynamically.
 * **[Customizing Callouts](custom-callouts.md)**: Redefine headers or add custom alert/callout blocks.
 * **[Responsive Images & Sizing](responsive-images.md)**: Create light/dark mode responsive images and control image dimensions.

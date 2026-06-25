@@ -4,6 +4,7 @@ This document serves as a comprehensive showcase of the standard supported Markd
 
 > [!NOTE]
 > For Dokfx-specific markdown extensions and styling configurations, please refer to the dedicated feature guides:
+>
 > * **[Accent Color Customization](accent-color.md)**
 > * **[Customizing Callouts](custom-callouts.md)**
 > * **[Responsive Images & Sizing](responsive-images.md)**
@@ -60,7 +61,8 @@ Here is a quick demonstration of basic inline text formatting. Note that the pri
 
 ## 3. Alerts & Callouts
 
-DocFX supports standard GitHub-flavored markdown alerts to emphasize critical information. In addition to standard styles, this theme supports custom callout colors—see [Customizing Callouts](custom-callouts.md) for details.
+DocFX supports standard GitHub-flavored markdown alerts to emphasize critical information. In addition
+to standard styles, this theme supports custom callout colors—see [Customizing Callouts](custom-callouts.md) for details.
 
 > [!NOTE]
 > This is a standard **Note** callout. Use it to provide background context, additional explanations, or helpful tips.
@@ -81,7 +83,8 @@ DocFX supports standard GitHub-flavored markdown alerts to emphasize critical in
 
 ## 4. Tables
 
-Below is an auto-sized table styled with a Bootstrap striped and bordered design. Under our styling, tables wrap tightly to their content and do not expand to 100% width unless they overflow the container width.
+Below is an auto-sized table styled with a Bootstrap striped and bordered design. Under our styling, tables wrap tightly
+to their content and do not expand to 100% width unless they overflow the container width.
 
 | Feature | Support Status | Description |
 | :--- | :---: | :--- |
@@ -96,7 +99,8 @@ Below is an auto-sized table styled with a Bootstrap striped and bordered design
 
 ### Inline Code in Sentence
 
-To configure the template, append your custom template path inside the `"template"` array within your `docfx.json` configuration file, ensuring it is ordered after `"modern"`.
+To configure the template, append your custom template path inside the `"template"` array within your `docfx.json`
+configuration file, ensuring it is ordered after `"modern"`.
 
 ### Syntax Highlighted Code Blocks
 
@@ -155,6 +159,8 @@ namespace MyLibrary
 
 ### Images
 
-By default, images adapt to fill their parent container width. You can also specify exact dimensions or use theme-responsive images (supporting automatic light/dark mode versions)—see [Responsive Images & Sizing](responsive-images.md) for usage instructions.
+By default, images adapt to fill their parent container width. You can also specify exact dimensions or use
+theme-responsive images (supporting automatic light/dark mode versions)—see
+[Responsive Images & Sizing](responsive-images.md) for usage instructions.
 
 ![Visual Graphic Asset](../images/KRYKOM-oneline-masked-b-test.png)

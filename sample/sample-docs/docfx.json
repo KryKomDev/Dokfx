@@ -56,8 +56,8 @@
       "_appTitle": "Dokfx Theme",
       "_gitRepo": "https://github.com/KryKomDev/Dokfx",
       "_accentColor": "#9800f8",
-      "_calloutNoteHeading": "Did you know?",
       "_calloutTipHeading": "Pro Tip",
+      "_calloutImportantHeading": "Crucial",
       "_customCallouts": [
         {
           "name": "todo",
