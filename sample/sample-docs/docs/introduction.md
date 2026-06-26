@@ -8,6 +8,7 @@ This document serves as a comprehensive showcase of the standard supported Markd
 > * **[Accent Color Customization](accent-color.md)**
 > * **[Customizing Callouts](custom-callouts.md)**
 > * **[Responsive Images & Sizing](responsive-images.md)**
+* **[Reworked API Layout](reworked-api-layout.md)**
 
 ---
 
